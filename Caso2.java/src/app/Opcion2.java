@@ -116,10 +116,10 @@ public class Opcion2 {
             System.out.println("Proceso: " + p.get_id());
             System.out.println("- Num referencias: " + p.get_total_referencias());
             System.out.println("- Fallas: " + p.get_fallos());
-            System.out.println("- Hits: " + p.get_hits());
+            System.out.println("- Hits: " + (p.get_hits()-p.get_fallos()));
             System.out.println("- SWAP: " + p.get_accesos_swap());
             double tasa_fallos = p.get_total_referencias() == 0 ? 0 : (double)p.get_fallos()/p.get_total_referencias();
-            double tasa_exito  = p.get_total_referencias() == 0 ? 0 : (double)p.get_hits()/p.get_total_referencias();
+            double tasa_exito  = p.get_total_referencias() == 0 ? 0 : (double)(p.get_hits()-p.get_fallos())/p.get_total_referencias();
             System.out.printf("- Tasa fallas: %.4f%n", tasa_fallos);
             System.out.printf("- Tasa éxito: %.4f%n", tasa_exito);
         }
